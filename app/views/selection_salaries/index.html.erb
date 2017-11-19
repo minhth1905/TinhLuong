@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col s4">
+    <%= link_to root_path do %>
+      <button  type="button" class="btn btn-success">Trang chủ</button>
+    <% end %>
+  </div>
+</div>
+
+<form method="POST" action="/selection_salaries">
+  <div class="row">
+    <div class="col s2">
+      <p>Tháng</p>
+    </div>
+
+    <div class="col s10">
+      <select class="browser-default" name="month">
+        <option value="" disabled selected>Chọn tháng</option>
+        <% @months.each do |day| %>
+          <option value="<%= day.id %>">Tháng <%= day.name %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s2">
+      <p>Năm</p>
+    </div>
+
+    <div class="col s10">
+      <select class="browser-default" name="year">
+        <option value="" disabled selected>Chọn năm</option>
+        <% @years.each do |day| %>
+          <option value="<%= day.id %>">Năm <%= day.name %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <button id="send" type="submit" class="btn btn-success" name="submit">Tính lương</button>
+  </div>
+</form>

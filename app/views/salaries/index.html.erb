@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col s4">
+    <%= link_to root_path do %>
+      <button  type="button" class="btn btn-success">Trang chủ</button>
+    <% end %>
+  </div>
+
+  <div class="col s4">
+    <%= link_to selections_path do %>
+      <button  type="button" class="btn btn-success">Chọn lại ngày tháng</button>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+          <th>Tên</th>
+          <th>Công</th>
+          <th>Sáng</th>
+          <th>Chiều</th>
+          <th>Cả ngày</th>
+          <th>Lương</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @data.each do |i| %>
+        <tr>
+          <td><%= i[:name] %></td>
+          <td><%= i[:cong] %></td>
+          <td><%= i[:sang] %></td>
+          <td><%= i[:chieu] %></td>
+          <td><%= i[:ca_ngay] %></td>
+          <td><%= i[:luong] %> đồng</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

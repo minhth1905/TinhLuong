@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col s4">
+    <%= link_to root_path do %>
+      <button  type="button" class="btn btn-success">Trang chủ</button>
+    <% end %>
+  </div>
+
+  <div class="col s4">
+    <%= link_to selections_path do %>
+      <button  type="button" class="btn btn-success">Chọn lại ngày tháng</button>
+    <% end %>
+  </div>
+</div>
+<form action="/attendances" method="POST">
+  <table>
+    <thead>
+      <tr>
+          <th>Tên</th>
+          <th>Sáng</th>
+          <th>Chiều</th>
+          <th>Cả ngày</th>
+          <th>Không đi</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @attendances.each do |attendance| %>
+        <tr>
+          <td><%= attendance.worker.name %></td>
+          <td>
+            <input name="<%= attendance.id %>"
+              type="radio" id="<%= attendance.id %>" value="1"
+              <%= attendance.typee.to_i == 1 ? 'checked' : '' %>
+               />
+            <label for="<%= attendance.id %>">Sáng</label>
+          </td>
+          <td>
+            <input name="<%= attendance.id %>"
+              type="radio" id="<%= attendance.id %>_1" value="2"
+              <%= attendance.typee.to_i == 2 ? 'checked' : '' %>
+               />
+            <label for="<%= attendance.id %>_1">Chiều</label>
+          </td>
+          <td>
+            <input name="<%= attendance.id %>"
+              type="radio" id="<%= attendance.id %>_2" value="3"
+              <%= attendance.typee.to_i == 3 ? 'checked' : '' %> />
+            <label for="<%= attendance.id %>_2">Cả ngày</label>
+          </td>
+          <td>
+            <input name="<%= attendance.id %>"
+              type="radio" id="<%= attendance.id %>_3" value="0"
+              <%= attendance.typee.to_i == 0 ? 'checked' : '' %> />
+            <label for="<%= attendance.id %>_3">Không đi</label>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <button id="send" type="submit" class="btn btn-success" name="submit">Tính công</button>
+</form>
