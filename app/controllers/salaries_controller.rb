@@ -10,7 +10,7 @@ class SalariesController < ApplicationController
       ca_ngay = Attendance.where(worker_id: worker.id, month_id: params[:month], year_id: params[:year], typee: 3).count
       object = {
         name: worker.name,
-        cong: cong/2,
+        cong: cong.to_f/2,
         luong: cong*125000,
         sang: sang,
         chieu: chieu,

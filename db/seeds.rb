@@ -17,3 +17,10 @@ end
 1.upto(31) do |n|
   Day.create(name: n)
 end
+
+Worker.create(name: "Anh Liêm")
+Worker.create(name: "Anh Kiệm")
+Worker.create(name: "Anh Huỳnh")
+Worker.create(name: "Anh Nhân")
+Worker.create(name: "Chị Liên")
+Worker.create(name: "Cháu Chiến")
